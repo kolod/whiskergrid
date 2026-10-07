@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Whisker Grid</string>
+
+    <string name="board_size">Розмір поля</string>
+    <string name="size_value">%1$d×%1$d</string>
+    <string name="difficulty">Складність</string>
+    <string name="difficulty_easy">Легка</string>
+    <string name="difficulty_medium">Середня</string>
+    <string name="difficulty_hard">Складна</string>
+    <string name="hard_unavailable">На полі 5×5 складних рівнів не буває</string>
+    <string name="new_game">Нова гра</string>
+    <string name="continue_game">Продовжити</string>
+    <string name="rules">Правила</string>
+    <string name="skipped_button">Пропущені поля (%1$d)</string>
+    <string name="skipped_title">Пропущені поля</string>
+    <string name="skipped_empty">Усі розпочаті поля пройдено</string>
+    <string name="cats_placed">Котів: %1$d з %2$d</string>
+
+    <string name="back">Назад</string>
+    <string name="undo">Скасувати</string>
+    <string name="clear">Очистити</string>
+    <string name="skip">Пропустити</string>
+    <string name="game_title">%1$d×%1$d · %2$s</string>
+    <string name="generating">Створюю рівень…</string>
+    <string name="controls_hint">Торкніться клітинки: × → кіт → порожньо.\nПроведіть пальцем, щоб ставити або стирати ×.</string>
+
+    <string name="solved_title">Усі коти на своїх місцях!</string>
+    <string name="play_again">Ще рівень</string>
+    <string name="to_menu">Меню</string>
+
+    <string name="rules_title">Правила</string>
+    <string name="rules_text">Поле поділене на кольорові ділянки — по одній на кожен рядок.\n\n• У кожному рядку, кожному стовпці й кожній ділянці має бути рівно один кіт.\n• Між будь-якими двома котами має бути хоча б одна вільна клітинка: сусідство збоку чи навскіс заборонене.\n\nКожен рівень можна розв\'язати лише логікою, без вгадування. Гра не підказує, чи правильно стоїть мітка, — це має з\'ясувати ви. Коли всі коти стануть на свої місця, рівень зараховується.</string>
+    <string name="ok">Зрозуміло</string>
+</resources>
