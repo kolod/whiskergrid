@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Whisker Grid</string>
+
+    <string name="board_size">Taille de la grille</string>
+    <string name="size_value">%1$d×%1$d</string>
+    <string name="difficulty">Difficulté</string>
+    <string name="difficulty_easy">Facile</string>
+    <string name="difficulty_medium">Moyenne</string>
+    <string name="difficulty_hard">Difficile</string>
+    <string name="hard_unavailable">Il n\'y a pas de niveaux difficiles sur une grille 5×5</string>
+    <string name="new_game">Nouvelle partie</string>
+    <string name="continue_game">Continuer</string>
+    <string name="rules">Règles</string>
+    <string name="skipped_button">Grilles passées (%1$d)</string>
+    <string name="skipped_title">Grilles passées</string>
+    <string name="skipped_empty">Toutes les grilles commencées sont terminées</string>
+    <string name="cats_placed">Chats : %1$d sur %2$d</string>
+
+    <string name="back">Retour</string>
+    <string name="undo">Annuler</string>
+    <string name="clear">Effacer</string>
+    <string name="skip">Passer</string>
+    <string name="game_title">%1$d×%1$d · %2$s</string>
+    <string name="generating">Création du niveau…</string>
+    <string name="controls_hint">Touchez une case : × → chat → vide.\nGlissez le doigt pour poser ou effacer des ×.</string>
+
+    <string name="solved_title">Tous les chats sont à leur place !</string>
+    <string name="play_again">Niveau suivant</string>
+    <string name="to_menu">Menu</string>
+
+    <string name="rules_title">Règles</string>
+    <string name="rules_text">La grille est divisée en zones colorées, une par ligne.\n\n• Chaque ligne, chaque colonne et chaque zone doit contenir exactement un chat.\n• Deux chats doivent toujours être séparés par au moins une case libre : ils ne peuvent se toucher ni sur le côté ni en diagonale.\n\nChaque niveau se résout uniquement par la logique, sans deviner. Le jeu ne vous dit pas si une marque est juste : c\'est à vous de le découvrir. Quand tous les chats sont à leur place, le niveau est réussi.</string>
+    <string name="ok">Compris</string>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Whisker Grid</string>
+
+    <string name="board_size">Board size</string>
+    <string name="size_value">%1$d×%1$d</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_medium">Medium</string>
+    <string name="difficulty_hard">Hard</string>
+    <string name="hard_unavailable">There are no hard levels on a 5×5 board</string>
+    <string name="new_game">New game</string>
+    <string name="continue_game">Continue</string>
+    <string name="rules">Rules</string>
+    <string name="skipped_button">Skipped boards (%1$d)</string>
+    <string name="skipped_title">Skipped boards</string>
+    <string name="skipped_empty">All started boards are finished</string>
+    <string name="cats_placed">Cats: %1$d of %2$d</string>
+
+    <string name="back">Back</string>
+    <string name="undo">Undo</string>
+    <string name="clear">Clear</string>
+    <string name="skip">Skip</string>
+    <string name="game_title">%1$d×%1$d · %2$s</string>
+    <string name="generating">Creating a level…</string>
+    <string name="controls_hint">Tap a cell: × → cat → empty.\nSwipe to place or erase ×.</string>
+
+    <string name="solved_title">All cats are in their places!</string>
+    <string name="play_again">Next level</string>
+    <string name="to_menu">Menu</string>
+
+    <string name="rules_title">Rules</string>
+    <string name="rules_text">The board is divided into colored regions — one for each row.\n\n• Every row, every column and every region must contain exactly one cat.\n• There must be at least one empty cell between any two cats: they may not touch sideways or diagonally.\n\nEvery level can be solved by logic alone, without guessing. The game does not tell you whether a mark is right — that is for you to figure out. Once all the cats are in their places, the level is complete.</string>
+    <string name="ok">Got it</string>
+</resources>

@@ -53,6 +53,12 @@ android {
     buildFeatures {
         compose = true
     }
+
+    // Lists the res/values-*/ languages in locales_config.xml so the app shows up in
+    // system Settings → App languages (Android 13+).
+    androidResources {
+        generateLocaleConfig = true
+    }
 }
 
 dependencies {

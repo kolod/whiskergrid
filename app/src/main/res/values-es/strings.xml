@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Whisker Grid</string>
+
+    <string name="board_size">Tamaño del tablero</string>
+    <string name="size_value">%1$d×%1$d</string>
+    <string name="difficulty">Dificultad</string>
+    <string name="difficulty_easy">Fácil</string>
+    <string name="difficulty_medium">Media</string>
+    <string name="difficulty_hard">Difícil</string>
+    <string name="hard_unavailable">En un tablero de 5×5 no hay niveles difíciles</string>
+    <string name="new_game">Nueva partida</string>
+    <string name="continue_game">Continuar</string>
+    <string name="rules">Reglas</string>
+    <string name="skipped_button">Tableros omitidos (%1$d)</string>
+    <string name="skipped_title">Tableros omitidos</string>
+    <string name="skipped_empty">Todos los tableros empezados están resueltos</string>
+    <string name="cats_placed">Gatos: %1$d de %2$d</string>
+
+    <string name="back">Atrás</string>
+    <string name="undo">Deshacer</string>
+    <string name="clear">Borrar</string>
+    <string name="skip">Omitir</string>
+    <string name="game_title">%1$d×%1$d · %2$s</string>
+    <string name="generating">Creando nivel…</string>
+    <string name="controls_hint">Toca una casilla: × → gato → vacía.\nDesliza el dedo para poner o borrar ×.</string>
+
+    <string name="solved_title">¡Todos los gatos están en su sitio!</string>
+    <string name="play_again">Otro nivel</string>
+    <string name="to_menu">Menú</string>
+
+    <string name="rules_title">Reglas</string>
+    <string name="rules_text">El tablero está dividido en zonas de colores, una por cada fila.\n\n• Cada fila, cada columna y cada zona debe tener exactamente un gato.\n• Entre dos gatos cualesquiera debe haber al menos una casilla libre: no pueden tocarse ni de lado ni en diagonal.\n\nCada nivel se puede resolver solo con lógica, sin adivinar. El juego no te dice si una marca es correcta: eso lo tienes que averiguar tú. Cuando todos los gatos estén en su sitio, el nivel queda superado.</string>
+    <string name="ok">Entendido</string>
+</resources>

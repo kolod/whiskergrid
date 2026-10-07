@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Whisker Grid</string>
+
+    <string name="board_size">Spielfeldgröße</string>
+    <string name="size_value">%1$d×%1$d</string>
+    <string name="difficulty">Schwierigkeit</string>
+    <string name="difficulty_easy">Leicht</string>
+    <string name="difficulty_medium">Mittel</string>
+    <string name="difficulty_hard">Schwer</string>
+    <string name="hard_unavailable">Auf einem 5×5-Feld gibt es keine schweren Level</string>
+    <string name="new_game">Neues Spiel</string>
+    <string name="continue_game">Fortsetzen</string>
+    <string name="rules">Regeln</string>
+    <string name="skipped_button">Übersprungene Felder (%1$d)</string>
+    <string name="skipped_title">Übersprungene Felder</string>
+    <string name="skipped_empty">Alle begonnenen Felder sind gelöst</string>
+    <string name="cats_placed">Katzen: %1$d von %2$d</string>
+
+    <string name="back">Zurück</string>
+    <string name="undo">Rückgängig</string>
+    <string name="clear">Leeren</string>
+    <string name="skip">Überspringen</string>
+    <string name="game_title">%1$d×%1$d · %2$s</string>
+    <string name="generating">Level wird erstellt…</string>
+    <string name="controls_hint">Zelle antippen: × → Katze → leer.\nWischen, um × zu setzen oder zu löschen.</string>
+
+    <string name="solved_title">Alle Katzen sind an ihrem Platz!</string>
+    <string name="play_again">Nächstes Level</string>
+    <string name="to_menu">Menü</string>
+
+    <string name="rules_title">Regeln</string>
+    <string name="rules_text">Das Feld ist in farbige Bereiche aufgeteilt – einen für jede Zeile.\n\n• In jeder Zeile, jeder Spalte und jedem Bereich muss genau eine Katze sitzen.\n• Zwischen zwei Katzen muss mindestens eine freie Zelle liegen: Sie dürfen sich weder seitlich noch diagonal berühren.\n\nJedes Level lässt sich allein mit Logik lösen, ganz ohne Raten. Das Spiel verrät nicht, ob eine Markierung richtig ist – das musst du selbst herausfinden. Sobald alle Katzen an ihrem Platz sind, ist das Level geschafft.</string>
+    <string name="ok">Verstanden</string>
+</resources>

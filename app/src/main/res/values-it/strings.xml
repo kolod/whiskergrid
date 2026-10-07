@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Whisker Grid</string>
+
+    <string name="board_size">Dimensione del campo</string>
+    <string name="size_value">%1$d×%1$d</string>
+    <string name="difficulty">Difficoltà</string>
+    <string name="difficulty_easy">Facile</string>
+    <string name="difficulty_medium">Media</string>
+    <string name="difficulty_hard">Difficile</string>
+    <string name="hard_unavailable">Su un campo 5×5 non ci sono livelli difficili</string>
+    <string name="new_game">Nuova partita</string>
+    <string name="continue_game">Continua</string>
+    <string name="rules">Regole</string>
+    <string name="skipped_button">Campi saltati (%1$d)</string>
+    <string name="skipped_title">Campi saltati</string>
+    <string name="skipped_empty">Tutti i campi iniziati sono completati</string>
+    <string name="cats_placed">Gatti: %1$d su %2$d</string>
+
+    <string name="back">Indietro</string>
+    <string name="undo">Annulla</string>
+    <string name="clear">Cancella</string>
+    <string name="skip">Salta</string>
+    <string name="game_title">%1$d×%1$d · %2$s</string>
+    <string name="generating">Creazione del livello…</string>
+    <string name="controls_hint">Tocca una casella: × → gatto → vuota.\nTrascina il dito per mettere o cancellare ×.</string>
+
+    <string name="solved_title">Tutti i gatti sono al loro posto!</string>
+    <string name="play_again">Altro livello</string>
+    <string name="to_menu">Menu</string>
+
+    <string name="rules_title">Regole</string>
+    <string name="rules_text">Il campo è diviso in zone colorate, una per ogni riga.\n\n• Ogni riga, ogni colonna e ogni zona deve contenere esattamente un gatto.\n• Tra due gatti qualsiasi deve esserci almeno una casella libera: non possono toccarsi né di lato né in diagonale.\n\nOgni livello si risolve solo con la logica, senza tirare a indovinare. Il gioco non ti dice se un segno è giusto: sta a te scoprirlo. Quando tutti i gatti sono al loro posto, il livello è superato.</string>
+    <string name="ok">Capito</string>
+</resources>
