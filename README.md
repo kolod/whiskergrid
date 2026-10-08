@@ -45,20 +45,27 @@ Gradle downloads it automatically.
 ```
 
 The release build is signed with the key from `app/keystore.properties` if that file
-exists, otherwise with the debug key.
+exists; otherwise the APK is left unsigned (`app-release-unsigned.apk`). It is never signed
+with the debug key.
 
 ### Releases
 
 [GitHub Actions](.github/workflows) runs tests, lint and a debug build on every push and pull
-request to `main`. Pushing a `vX.Y.Z` tag builds a signed release APK and attaches it to a
-GitHub release. It needs these repository secrets:
+request to `main`. Pushing a `vX.Y.Z` tag on a commit of `main` builds a signed release APK and
+attaches it to a GitHub release. The signing job runs in the `release` environment, which
+needs an approval for every run, and reads these secrets:
 
 | Secret | Value |
 |---|---|
-| `ANDROID_KEYSTORE_BASE64` | release keystore, base64-encoded |
+| `ANDROID_KEYSTORE_BASE64` | release keystore, single-line Base64 |
 | `ANDROID_KEYSTORE_PASSWORD` | keystore password |
 | `ANDROID_KEY_ALIAS` | key alias |
 | `ANDROID_KEY_PASSWORD` | key password |
+
+The signing key is kept in KeePass and exported with
+[KeeDroidSign](https://github.com/kolod/kee-droid-sign). Keep the secrets in the `release`
+environment rather than at repository level, so no other workflow can read them. Third-party
+actions are pinned by commit SHA; Dependabot proposes updates.
 
 ## Project structure
 

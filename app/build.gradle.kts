@@ -6,7 +6,8 @@ plugins {
 }
 
 // Release signing key: CI writes keystore.properties from repository secrets; both it and the
-// keystore are gitignored. Without it the release build falls back to the debug key.
+// keystore are gitignored. Without it the release APK is left unsigned (app-release-unsigned.apk):
+// a release build is never signed with the debug key.
 val keystoreProperties = Properties().apply {
     val propsFile = file("keystore.properties")
     if (propsFile.exists()) propsFile.inputStream().use { load(it) }
@@ -41,7 +42,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
-            signingConfig = signingConfigs.findByName("release") ?: signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.findByName("release")
         }
     }
 
