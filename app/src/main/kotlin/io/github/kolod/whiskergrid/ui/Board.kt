@@ -6,6 +6,7 @@ import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
@@ -21,11 +22,13 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
 import io.github.kolod.whiskergrid.game.Mark
 import io.github.kolod.whiskergrid.game.Puzzle
+import io.github.kolod.whiskergrid.game.conflicts
 import io.github.kolod.whiskergrid.ui.theme.LocalBoardColors
 
 /**
  * The playing field. A tap cycles a cell (empty → × → cat); dragging across cells paints or erases
- * crosses. Nothing here ever hints whether a mark is right.
+ * crosses. Cats that visibly break a rule together with another cat are drawn in red; nothing here
+ * ever compares the marks with the solution.
  */
 @Composable
 fun Board(
@@ -45,6 +48,9 @@ fun Board(
     val dragStart by rememberUpdatedState(onDragStart)
     val dragOver by rememberUpdatedState(onDragOver)
     val dragEnd by rememberUpdatedState(onDragEnd)
+    val conflicts = remember(puzzle, marks) {
+        puzzle.conflicts(BooleanArray(marks.size) { marks[it] == Mark.CAT })
+    }
 
     Canvas(
         modifier
@@ -133,10 +139,23 @@ fun Board(
                     drawLine(tint, Offset(left + b, top + a), Offset(left + a, top + b), crossStroke, StrokeCap.Round)
                 }
                 Mark.CAT -> {
+                    val conflicting = conflicts[i]
+                    if (conflicting) {
+                        // A frame as well as the tint: a red cat alone is hard to see on red regions.
+                        val frame = 3.dp.toPx()
+                        drawRoundRect(
+                            colors.conflict,
+                            topLeft = Offset(left + frame, top + frame),
+                            size = Size(cell - 2 * frame, cell - 2 * frame),
+                            cornerRadius = CornerRadius(cell * 0.12f),
+                            style = Stroke(frame),
+                        )
+                    }
                     val inset = cell * 0.12f
+                    val tint = if (conflicting) colors.conflict else colors.mark
                     translate(left + inset, top + inset) {
                         with(cat) {
-                            draw(Size(cell - 2 * inset, cell - 2 * inset), colorFilter = ColorFilter.tint(colors.mark))
+                            draw(Size(cell - 2 * inset, cell - 2 * inset), colorFilter = ColorFilter.tint(tint))
                         }
                     }
                 }

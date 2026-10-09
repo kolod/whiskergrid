@@ -20,6 +20,8 @@ data class BoardColors(
     val mark: Color,
     val grid: Color,
     val border: Color,
+    /** Cats that break a rule together with another cat. */
+    val conflict: Color,
 )
 
 private val LightBoard = BoardColors(
@@ -30,6 +32,7 @@ private val LightBoard = BoardColors(
     mark = Color(0xFF2B2320),
     grid = Color(0x33000000),
     border = Color(0xFF3A302C),
+    conflict = Color(0xFFC62828),
 )
 
 private val DarkBoard = BoardColors(
@@ -40,6 +43,7 @@ private val DarkBoard = BoardColors(
     mark = Color(0xFFF7EFEA),
     grid = Color(0x40FFFFFF),
     border = Color(0xFF0E0B0A),
+    conflict = Color(0xFFFF5A52),
 )
 
 val LocalBoardColors = staticCompositionLocalOf { LightBoard }

@@ -70,15 +70,24 @@ internal fun attackedBy(size: Int, regions: IntArray, cell: Int): IntArray {
     return out.toIntArray()
 }
 
-/** True when [cats] (one flag per cell) is a complete, rule-abiding placement. */
-fun Puzzle.isSolvedBy(cats: BooleanArray): Boolean {
+/** True when two cats on [a] and [b] break a rule: same row, column or region, or touching. */
+fun Puzzle.clash(a: Int, b: Int): Boolean =
+    row(a) == row(b) || col(a) == col(b) || regions[a] == regions[b] ||
+        (kotlin.math.abs(row(a) - row(b)) <= 1 && kotlin.math.abs(col(a) - col(b)) <= 1)
+
+/** Flags every cat in [cats] (one flag per cell) that breaks a rule together with another cat. */
+fun Puzzle.conflicts(cats: BooleanArray): BooleanArray {
     val placed = cats.indices.filter { cats[it] }
-    if (placed.size != size) return false
-    if (placed.map(::row).toSet().size != size) return false
-    if (placed.map(::col).toSet().size != size) return false
-    if (placed.map { regions[it] }.toSet().size != size) return false
+    val out = BooleanArray(cats.size)
     for (a in placed) for (b in placed) {
-        if (a < b && kotlin.math.abs(row(a) - row(b)) <= 1 && kotlin.math.abs(col(a) - col(b)) <= 1) return false
+        if (a < b && clash(a, b)) {
+            out[a] = true
+            out[b] = true
+        }
     }
-    return true
+    return out
 }
+
+/** True when [cats] (one flag per cell) is a complete, rule-abiding placement. */
+fun Puzzle.isSolvedBy(cats: BooleanArray): Boolean =
+    cats.count { it } == size && conflicts(cats).none { it }
