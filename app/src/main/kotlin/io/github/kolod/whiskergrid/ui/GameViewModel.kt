@@ -55,6 +55,9 @@ class GameViewModel(app: Application) : AndroidViewModel(app) {
     /** What a drag does to the cells it passes over; decided by the cell it started on. */
     private var dragPaint: Mark? = null
 
+    /** The cell whose × was put by the latest action, a tap; a second tap there turns it into a cat. */
+    private var crossTappedOn: Int? = null
+
     /** The board for the next "new game", generated ahead of time for [nextFor]. */
     private var next: Deferred<Puzzle>? = null
     private var nextFor: Settings? = null
@@ -141,6 +144,7 @@ class GameViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     private fun open(game: SavedGame) {
+        crossTappedOn = null
         store.open(game)
         _game.value = game.toState()
         _skipped.value = store.skipped()
@@ -155,7 +159,11 @@ class GameViewModel(app: Application) : AndroidViewModel(app) {
             Mark.CROSS -> Mark.CAT
             Mark.CAT -> Mark.EMPTY
         }
-        change { it[cell] = next }
+        // Placing a cat takes two taps (empty → × → cat); undo should take it back in one step,
+        // so the second tap joins the step of the first one if nothing happened in between.
+        val joinLast = next == Mark.CAT && crossTappedOn == cell
+        change(joinLast) { it[cell] = next }
+        crossTappedOn = if (next == Mark.CROSS) cell else null
     }
 
     fun dragStart(cell: Int) {
@@ -186,6 +194,7 @@ class GameViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     fun undo() {
+        crossTappedOn = null
         val previous = history.removeLastOrNull() ?: return
         apply(previous)
     }
@@ -195,14 +204,18 @@ class GameViewModel(app: Application) : AndroidViewModel(app) {
         change { it.fill(Mark.EMPTY) }
     }
 
-    private fun change(edit: (MutableList<Mark>) -> Unit) {
+    /** Applies [edit] as a new undo step, or as part of the last one when [joinLast] is set. */
+    private fun change(joinLast: Boolean = false, edit: (MutableList<Mark>) -> Unit) {
+        crossTappedOn = null
         val state = _game.value
         if (state.puzzle == null || state.solved) return
         val marks = state.marks.toMutableList()
         edit(marks)
         if (marks == state.marks) return
-        history.addLast(state.marks)
-        if (history.size > MAX_UNDO) history.removeFirst()
+        if (!joinLast || history.isEmpty()) {
+            history.addLast(state.marks)
+            if (history.size > MAX_UNDO) history.removeFirst()
+        }
         apply(marks)
     }
 
